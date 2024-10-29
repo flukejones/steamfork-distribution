@@ -5913,7 +5913,7 @@ index 91e944e017b4..ab3dfa7296b6 100644
 +
 +static void _gamepad_set_xpad_default(struct ally_gamepad_cfg *ally_cfg)
 +{
-+	struct btn_mapping *map = &ally_cfg->key_mapping[xpad_mode_game - 1];
++	struct btn_mapping *map = &ally_cfg->key_mapping[ally_cfg->mode - 1];
 +	map->btn_m1.button = BTN_KB_M1;
 +	map->btn_m2.button = BTN_KB_M2;
 +	map->btn_a.button = BTN_PAD_A;
@@ -6427,7 +6427,7 @@ index bc58818a8efb..005459a6e469 100644
  
 +static int _gamepad_apply_turbo(struct hid_device *hdev, struct ally_gamepad_cfg *ally_cfg)
 +{
-+	struct btn_mapping *map = &ally_cfg->key_mapping[ally_cfg->mode];
++	struct btn_mapping *map = &ally_cfg->key_mapping[ally_cfg->mode - 1];
 +	u8 *hidbuf;
 +	int ret;
 +
